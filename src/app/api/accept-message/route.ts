@@ -24,12 +24,14 @@ console.log(user)
 
     const userId = user._id
     const { acceptMessages } = await request.json()
+    console.log(acceptMessages)
     try {
         const updatedUser = await UserModel.findByIdAndUpdate(
             userId,
-            { isAcceptingMessage: acceptMessages },
+            { isAcceptingMessages: acceptMessages },
             { new: true }
         )
+        console.log(updatedUser)
         if (!updatedUser) {
             return Response.json(
                 {
