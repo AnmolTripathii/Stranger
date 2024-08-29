@@ -20,7 +20,7 @@ import Link from "next/link"
 
 
 
-const page = () => {
+const Page = () => {
 
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -106,4 +106,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
