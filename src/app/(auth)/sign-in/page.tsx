@@ -35,31 +35,32 @@ const Page = () => {
 
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
-    const result=await signIn('credentials',{
-      redirect:false,
-      identifier:data.identifier,
-      password:data.password
-    })
-    if(result?.error){
-      if(result.error=='CredentialsSignin'){
+    const result = await signIn('credentials', {
+      redirect: false,
+      identifier: data.identifier,
+      password: data.password,
+    });
+
+    if (result?.error) {
+      if (result.error === 'CredentialsSignin') {
         toast({
-          title:"Login Failed",
-          description:"Incorrect username or password",
-          variant:"destructive"
-        })
-      }
-      else{
+          title: 'Login Failed',
+          description: 'Incorrect username or password',
+          variant: 'destructive',
+        });
+      } else {
         toast({
-          title:"Error",
-          description:result.error,
-          variant:"destructive"
-        })
+          title: 'Error',
+          description: result.error,
+          variant: 'destructive',
+        });
       }
     }
-    if(result?.url){
-      router.replace('/dashboard')
+
+    if (result?.url) {
+      router.replace('/dashboard');
     }
-  }
+  };
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-md">
