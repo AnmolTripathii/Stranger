@@ -72,7 +72,7 @@ const Page = () => {
         title: 'Success',
         description: response.data.message
       })
-      router.replace(`/dashboard`)
+      router.replace(`/sign-in`)
       setIsSubmitting(false)
     } catch (error) {
       console.log("Error in signup of user", error)
